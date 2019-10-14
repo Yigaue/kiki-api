@@ -1,0 +1,14 @@
+button.homepage-action {
+    width: 10%;
+    height: 25%;
+    color: #ffffff;
+    background-color: #FB668C;
+    /* border-radius: 30%; */
+    margin: 5%;
+    border: none;
+    position: relative;
+    left: 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+
+}
