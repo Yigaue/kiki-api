@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Story;
 use Illuminate\Http\Request;
 
-class StoryController extends Controller
+class StoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +14,18 @@ class StoryController extends Controller
      */
     public function index()
     {
-        //
+        return Story::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    // /**
+    //  * Show the form for creating a new resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +35,16 @@ class StoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+      $data = $request->validate([
+        'title' => 'required|string',
+        'content' => 'required',
+        'author' => 'required|string',
+       
+       
+       ]);
+       $story = Story::create($data);
+       return response($story, 201);
     }
 
     /**
@@ -45,8 +54,9 @@ class StoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Story $story)
-    {
-        //
+    {       
+       
+       return Story::where('id', $story->id)->get();
     }
 
     /**
@@ -69,7 +79,15 @@ class StoryController extends Controller
      */
     public function update(Request $request, Story $story)
     {
-        //
+       $data = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'author' => 'required',
+           
+       ]);
+
+       $story->update($data);
+       return response($story, 200);
     }
 
     /**
@@ -80,6 +98,7 @@ class StoryController extends Controller
      */
     public function destroy(Story $story)
     {
-        //
+        $story->delete();
+        return response('story deleted', 200);
     }
 }

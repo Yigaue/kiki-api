@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StoriesController;
 use Illuminate\Http\Request;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/stories','StoriesController@index');
+Route::post('/stories', 'StoriesController@store');
+Route::patch('stories/{story}', 'StoriesController@update');
+Route::delete('/stories/{story}', 'StoriesController@destroy');
+Route::get('story/{story}', 'storiesController@show');
