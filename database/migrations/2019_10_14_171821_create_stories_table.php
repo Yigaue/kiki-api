@@ -15,12 +15,12 @@ class CreateStoriesTable extends Migration
     {
         Schema::create('stories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable;
             $table->integer('country_id')->nullable;
             $table->string('title');
             $table->text('content');
             $table->string('author');
-            $table->text('image');
+            $table->text('image')->nullable;
             $table->timestamps();
         });
     }

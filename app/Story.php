@@ -11,8 +11,10 @@ class Story extends Model
     protected $table = 'stories';
     protected $fillable = ['title', 'content', 'author'];
     protected $hidden = ['created_at', 'updated_at'];
-
-   
+    
+   public function user(){
+       return $this->hasMany(Story::class);
+   }
 }
 //     $rules = [
 //     'title' => ['required'],
@@ -41,4 +43,5 @@ class Story extends Model
 //         'status'=> 201,
 //         'success' => $story,
 //     ]);
+
 
