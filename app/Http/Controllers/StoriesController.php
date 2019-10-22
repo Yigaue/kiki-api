@@ -56,7 +56,7 @@ class StoriesController extends Controller
     public function show(Story $story)
     {       
        
-       return Story::where('id', $story->id)->get();
+       return Story::firstOrFail()->get();
     }
 
     /**
