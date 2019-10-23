@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Story extends Model
 {
     protected $table = 'stories';
-    protected $fillable = ['title', 'content', 'author'];
+    protected $fillable = ['title', 'content', 'author','image'];
     protected $hidden = ['created_at', 'updated_at'];
     
    public function user(){

@@ -40,8 +40,7 @@ class StoriesController extends Controller
         'title' => 'required|string',
         'content' => 'required',
         'author' => 'required|string',
-       
-       
+       'image' => 'present',
        ]);
        $story = Story::create($data);
        return response($story, 201);
@@ -83,6 +82,7 @@ class StoriesController extends Controller
             'title' => 'required',
             'content' => 'required',
             'author' => 'required',
+            
            
        ]);
 
