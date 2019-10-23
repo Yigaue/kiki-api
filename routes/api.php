@@ -21,4 +21,4 @@ Route::get('/stories','StoriesController@index');
 Route::post('/stories', 'StoriesController@store');
 Route::patch('stories/{story}', 'StoriesController@update');
 Route::delete('/stories/{story}', 'StoriesController@destroy');
-Route::get('story/{story}', 'storiesController@show');
+Route::get('story/{story}', 'StoriesController@show');
